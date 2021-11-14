@@ -178,10 +178,11 @@ executing this command to get the expected behavior."
 
 (defun symex-evil-initialize ()
   "Initialize evil modal interface."
-  (let ((keyspec (symex--combine-alists symex--user-evil-keyspec
-                                        symex--evil-keyspec)))
-    (symex--define-evil-keys-from-spec keyspec
-                                       symex-editing-mode-map))
+  (when symex-load-default-keybindings-p
+    (let ((keyspec (symex--combine-alists symex--user-evil-keyspec
+                                          symex--evil-keyspec)))
+      (symex--define-evil-keys-from-spec keyspec
+                                         symex-editing-mode-map)))
   (unless (symex--rigpa-enabled-p)
     ;; without rigpa (which would handle this for us), we need to
     ;; manage the editing minor mode and ensure that it is active

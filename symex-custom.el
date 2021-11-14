@@ -60,6 +60,11 @@
   :type 'list
   :group 'symex)
 
+(defcustom symex-load-default-keybindings-p t
+  "Whether to load default keybindings for the evil backend."
+  :type 'boolean
+  :group 'symex)
+
 
 (provide 'symex-custom)
 ;;; symex-custom.el ends here
